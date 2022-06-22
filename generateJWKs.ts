@@ -1,7 +1,7 @@
-import { generateJWK } from "./mod.ts";
+import { genHMACSHA512 } from "./mod.ts";
 
 const generateJWKs = async () => {
-  const keys = await Promise.all(Array(10).fill(0).map(generateJWK));
+  const keys = await Promise.all(Array(10).fill(0).map(genHMACSHA512));
   return keys;
 };
 
