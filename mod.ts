@@ -7,6 +7,15 @@ export const genHMACSHA512 = async () => {
   return crypto.subtle.exportKey("jwk", key);
 };
 
+export const genHMACSHA256 = async () => {
+  const key = await crypto.subtle.generateKey(
+    { name: "HMAC", hash: "SHA-256", length: 256 },
+    true,
+    ["sign", "verify"]
+  );
+  return crypto.subtle.exportKey("jwk", key);
+};
+
 export const generateES256Pair = async () => {
   const key = await crypto.subtle.generateKey(
     { name: "ECDSA", namedCurve: "P-256" },
